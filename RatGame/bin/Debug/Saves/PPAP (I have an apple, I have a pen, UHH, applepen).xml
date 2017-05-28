@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Player xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <level>3</level>
+  <maxhealth>32</maxhealth>
+  <health>32</health>
+  <attackhi>11</attackhi>
+  <attacklo>8</attacklo>
+  <accuracy>56</accuracy>
+  <name>PPAP (I have an apple, I have a pen, UHH, applepen)</name>
+  <exp>0</exp>
+  <nextlevelexp>45</nextlevelexp>
+</Player>

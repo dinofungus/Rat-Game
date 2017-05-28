@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Player xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <level>3</level>
+  <maxhealth>30</maxhealth>
+  <health>30</health>
+  <attackhi>12</attackhi>
+  <attacklo>9</attacklo>
+  <accuracy>58</accuracy>
+  <name>angus</name>
+  <exp>0</exp>
+  <nextlevelexp>45</nextlevelexp>
+</Player>

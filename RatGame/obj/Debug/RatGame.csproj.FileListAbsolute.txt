@@ -1,0 +1,2 @@
+H:\Documents\Visual Studio 2015\Projects\acoolconsoleapplication\acoolconsoleapplication\bin\Debug\RatGame.exe.config
+\\svr-store2\22398$\Documents\Visual Studio 2015\Projects\RatGame\RatGame\bin\Debug\RatGame.exe.config
