@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace RatGame
 {
-    class Monster : Entity
+    class Command
     {
-        public int expreward;
+
     }
 }
