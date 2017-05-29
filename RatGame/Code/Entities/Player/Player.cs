@@ -10,6 +10,7 @@ namespace RatGame
     {
         public int exp;
         public int nextlevelexp;
+        Attributes attributes = new Attributes();
         
         public Player()
         {

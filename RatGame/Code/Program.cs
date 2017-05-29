@@ -15,7 +15,6 @@ namespace RatGame
         static void Main(string[] args)
         {
             Player player = null;
-            Attributes attributes = new Attributes();
             Console.Write("Enter a name: ");
             n = Console.ReadLine();
             string path = "Saves/" + n + ".xml";
