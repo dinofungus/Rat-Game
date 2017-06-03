@@ -6,19 +6,23 @@ using System.Threading.Tasks;
 
 namespace RatGame
 {
-    class Attributes
+    public class Attributes
     {
         string[] attributeNames = new string[5] { "Strength", "Vitality", "Dexterity", "Wisdom", "Luck" };
 
-        int[] baseAttributes = new int[5] { 5, 5, 5, 5, 5 };
+        public int[] baseAttributes = new int[5] { 5, 5, 5, 5, 5 };
 
-        int[] pointAttributes = new int[5] { 0, 0, 0, 0, 0 };
+        public int[] pointAttributes = new int[5] { 0, 0, 0, 0, 0 };
 
-        int[] finalAttributes = new int[5];
+        public int[] finalAttributes = new int[5];
 
         public Attributes()
         {
-            bool reroll = true;
+            Console.WriteLine("Attributes Loaded");
+        }
+        public Attributes(bool r)
+        {
+            bool reroll = r;
 
             while (reroll)
             {
@@ -66,6 +70,13 @@ namespace RatGame
 
             }
 
+        }
+        public void Display()
+        {
+            for (int i = 0; i < finalAttributes.Length; i++)
+            {
+                Console.WriteLine(attributeNames[i] + ": " + finalAttributes[i]);
+            }
         }
     }
 }

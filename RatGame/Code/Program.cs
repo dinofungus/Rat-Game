@@ -17,7 +17,7 @@ namespace RatGame
             Player player = null;
             Console.Write("Enter a name: ");
             n = Console.ReadLine();
-            string path = "Saves/" + n + ".xml";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Dinofungus/Rat-Game/" + n + ".xml";
             if (File.Exists(path))
             {
                 Console.WriteLine("Loading Player");
@@ -73,7 +73,12 @@ namespace RatGame
         }
         public static void Save(Player p)
         {
-            string filename = "Saves/" + p.name + ".xml";
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Dinofungus/Rat-Game/";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            string filename = path + p.name + ".xml";
             var s = new System.Xml.Serialization.XmlSerializer(p.GetType());
             var sw = new StreamWriter(filename);
             s.Serialize(sw, p);

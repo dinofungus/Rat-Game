@@ -10,33 +10,29 @@ namespace RatGame
     {
         public int exp;
         public int nextlevelexp;
-        Attributes attributes = new Attributes();
+        public Attributes attributes;
         
         public Player()
         {
+            //Constructor for loading player
             Console.WriteLine("Player loaded");
         }
         public Player(string n)
         {
-
+            //Constructor for creating player
             name = n;
-            Console.Write("Generating Player");
-            System.Threading.Thread.Sleep(1000);
-            maxhealth = Program.random.Next(15, 26);
-            health = maxhealth;
-            Console.Write(".");
-            System.Threading.Thread.Sleep(1000);
-            attacklo = Program.random.Next(3, 8);
-            Console.Write(".");
-            System.Threading.Thread.Sleep(1000);
-            attackhi = attacklo + Program.random.Next(1, 4);
-            Console.Write(".");
-            System.Threading.Thread.Sleep(1000);
-            accuracy = Program.random.Next(45, 71);
-            level = 1;
-            exp = 0;
-            nextlevelexp = 5 * level * level;
-            Console.WriteLine(".");
+
+            attributes = new Attributes(true);
+
+            health = attributes.finalAttributes[1] * 3;
+            attacklo = attributes.finalAttributes[0];
+            attackhi = attributes.finalAttributes[0] + 2;
+            accuracy = attributes.finalAttributes[2] * 10;
+            if (accuracy > 80)
+            {
+                //remove this once better accuracy implemented
+                accuracy = 80;
+            }
 
             Stats();
             Console.WriteLine("Press any key to continue");
@@ -45,8 +41,10 @@ namespace RatGame
         }
         public void Stats()
         {
+            //Print player stats
             Console.WriteLine("Your stats are:");
             Console.WriteLine("Name: " + name);
+            attributes.Display();
             Console.WriteLine("Health: " + health);
             Console.WriteLine("Attack: " + attacklo + "-" + attackhi);
             Console.WriteLine("Accuracy: " + accuracy);
@@ -56,6 +54,7 @@ namespace RatGame
         }
         public void LevelUp()
         {
+            //Level up and increase stats
             level++;
             exp -= nextlevelexp;
             nextlevelexp = 5 * level * level;
