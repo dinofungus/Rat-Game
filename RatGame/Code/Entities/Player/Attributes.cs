@@ -71,6 +71,43 @@ namespace RatGame
             }
 
         }
+        private void SetFinal()
+        {
+            for (int i = 0; i < baseAttributes.Length; i++)
+            {
+                finalAttributes[i] = baseAttributes[i] + pointAttributes[i];
+                Console.WriteLine(attributeNames[i] + ": " + finalAttributes[i]);
+                
+            }
+            Console.WriteLine();
+        }
+        public void Assign(int p)
+        {
+            int remainingPoints = p;
+            while (remainingPoints > 0)
+            {
+                bool assigned = false;
+                Console.WriteLine("You have {0} points left to spend", remainingPoints);
+                do
+                {
+                    Console.Write("Please choose an attribute to increase: ");
+                string input = Console.ReadLine();
+                
+                    for (int i = 0; i < attributeNames.Length; i++)
+                    {
+                        if (input == attributeNames[i])
+                        {
+                            pointAttributes[i]++;
+                            remainingPoints--;
+                            assigned = true;
+                            Console.WriteLine("{0} increased by 1", attributeNames[i]);
+                        }
+                    }
+                } while (!assigned);                
+            }
+            Console.WriteLine("All attribute points assigned");
+            SetFinal();
+        }
         public void Display()
         {
             for (int i = 0; i < finalAttributes.Length; i++)

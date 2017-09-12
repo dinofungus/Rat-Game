@@ -8,7 +8,7 @@ namespace RatGame
 {
     public class Entity
     {
-        public int level;
+        public int level = 1;
         public int maxhealth;
         public int health;
         public int attackhi;

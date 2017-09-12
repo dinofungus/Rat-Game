@@ -20,20 +20,9 @@ namespace RatGame
         public Player(string n)
         {
             //Constructor for creating player
-            name = n;
-
+            name = n;           
             attributes = new Attributes(true);
-
-            health = attributes.finalAttributes[1] * 3;
-            attacklo = attributes.finalAttributes[0];
-            attackhi = attributes.finalAttributes[0] + 2;
-            accuracy = attributes.finalAttributes[2] * 10;
-            if (accuracy > 80)
-            {
-                //remove this once better accuracy implemented
-                accuracy = 80;
-            }
-
+            SetStats();
             Stats();
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
@@ -58,7 +47,9 @@ namespace RatGame
             level++;
             exp -= nextlevelexp;
             nextlevelexp = 5 * level * level;
-            maxhealth += Program.random.Next(2, 6);
+
+
+            /*maxhealth += Program.random.Next(2, 6);
             health = maxhealth;
             int atkup = Program.random.Next(1, 4);
             attacklo += atkup;
@@ -70,15 +61,30 @@ namespace RatGame
             if (accuracy > 80)
             {
                 accuracy = 80;
-            }
+            }*/
             Console.WriteLine();
             Console.WriteLine("You reached level " + level);
+
+            attributes.Assign(2);
+            SetStats();
             Console.WriteLine("Your stats are:");
             Console.WriteLine("Health: " + health);
             Console.WriteLine("Attack: " + attacklo + "-" + attackhi);
             Console.WriteLine("Accuracy: " + accuracy);
             Console.WriteLine("Press any key to continue");
             Console.WriteLine();
+        }
+        private void SetStats()
+        {
+            health = attributes.finalAttributes[1] * 3;
+            attacklo = attributes.finalAttributes[0];
+            attackhi = attributes.finalAttributes[0] + 2;
+            accuracy = attributes.finalAttributes[2] * 10;
+            if (accuracy > 80)
+            {
+                //remove this once better accuracy implemented
+                accuracy = 80;
+            }
         }
     }
 }
